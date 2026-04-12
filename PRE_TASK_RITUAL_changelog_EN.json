@@ -1,0 +1,170 @@
+{
+  "PRE_TASK_RITUAL_changelog": {
+    "format_note": "Each version entry consists of 3 fields: summary (1 line), intent ('what felt like a problem → what was changed → what improved'), and user_review_required (items recommended for User review). Operating rules: The AI auto-appends each version entry at the time of version upgrade. v5.0–v5.4 intent entries are pending User supplementation. The intent field records the process of design changes, self-corrections, and rejection decisions — not just conclusions. Leaving a record of the process improves handoff quality for successor AIs. Update completion condition: Update is complete once the record of changes, self-corrections, and rejection decisions for that version is finished. Retroactively modifying a prior version's changelog is prohibited in principle as it causes loops — document any missed records in the next version's user_review_required and move forward. Exception condition for retroactive modification: Permitted only for the final session before the completion condition was defined. After that, do not modify prior version changelogs; transfer records to the next version's user_review_required. Version number operations: Do not increment the version number when there are no changes to the main JSON (changelog-only updates). [Required] Version upgrade work rule: When performing version upgrades or file edits to the PRE_TASK_RITUAL, always work in a state where the latest PRE_TASK_RITUAL has been executed. Working without execution is a textbook case of the formal-confirmation omission that FORBIDDEN_FIRST-14 (Anti-Compliance-Simulation) detects, and causes careless errors such as forgetting to update the version number in execution_declaration (actual example: occurred in v5.19, recorded 2026-04-12).",
+    "versions": {
+      "v5.0": {
+        "summary": "External Witness Protocol made independent; 65% threshold → category completeness method; hybrid English keywords + Japanese response rule",
+        "intent": "Not recorded. User supplementation recommended.",
+        "user_review_required": []
+      },
+      "v5.1": {
+        "summary": "Pre-mortem declaration added; refuted_alternatives added to external witness; premortem_consistency_check added to POST-TASK",
+        "intent": "Not recorded. User supplementation recommended.",
+        "user_review_required": []
+      },
+      "v5.2": {
+        "summary": "CREATIVE_SESSION_PROTOCOL added (5-axis internal document search + proactive proposal obligation); FORBIDDEN_FIRST 12, 13 added",
+        "intent": "Not recorded. User supplementation recommended.",
+        "user_review_required": []
+      },
+      "v5.3": {
+        "summary": "FORBIDDEN_FIRST-1 strengthened; technique_extraction_check added to Step 9",
+        "intent": "Not recorded. User supplementation recommended.",
+        "user_review_required": []
+      },
+      "v5.4": {
+        "summary": "Creative branching added to Step 1 (dynamic search + 5-axis obligation per turn)",
+        "intent": "Not recorded. User supplementation recommended.",
+        "user_review_required": []
+      },
+      "v5.5": {
+        "summary": "creative_session.COMPLETION_GATE strengthened to 3-field structure; GATE_BLOCK triggered on zero extracted elements",
+        "intent": "Problem: There was no way to detect cases where the dynamic search block was formally output but the extraction elements were empty. Fix: Decomposed COMPLETION_GATE into 3 fields — format_check, quality_check, and on_failure — and explicitly defined zero extracted elements as a GATE_BLOCK trigger. Improvement: Structurally sealed off the escape judgment 'there is nothing to search in this statement.'",
+        "user_review_required": []
+      },
+      "v5.6": {
+        "summary": "Anti-Compliance-Simulation (FORBIDDEN_FIRST-14) added; rule_improvement_duty converted to object with mandatory consolidation_report added",
+        "intent": "Problem ①: There was no means to detect 'theatrical compliance' where the AI outputs a [Document Check] block while not actually consulting the canon materials. Fix: Established FORBIDDEN_FIRST-14 as a self-detection obligation with a re-execution trigger. Problem ②: There was no mechanism to stop the loop where rules only accumulated and kept growing. Fix: Added consolidation_report as a mandatory item in Step 9, designing an automatic optimization cycle that forces integration proposals to be output each session (named 'auto-optimization mode' by the User).",
+        "user_review_required": [
+          "The 'self-detection' of FORBIDDEN_FIRST-14 depends on the AI's own reporting, and it is structurally impossible to prevent an AI from performing theatrical compliance while also performing FORBIDDEN_FIRST-14 theatrically. How to handle this limitation (accept it, or establish a different detection mechanism) requires discussion."
+        ]
+      },
+      "v5.7": {
+        "summary": "Added 'strengthening = addition + consolidation/integration' principle to design_philosophy; version_sunset_rule integrated into consolidation_report.sunset_integration",
+        "intent": "Problem: The concept of 'strengthening' had been operated as if it meant only adding rules, and the design philosophy had not explicitly stated that improving density through integration and consolidation was also acceptable. Fix: Appended 'reducing items to raise density is also a form of strengthening' to design_philosophy, positioning it as a value standard common to all rules. Also, the previously independent version_sunset_rule was absorbed into the per-session-triggering consolidation_report, resolving the 10-session count problem (AI cannot track this across sessions due to lack of inter-session memory).",
+        "user_review_required": [
+          "There was design judgment uncertainty about whether to leave a MERGED pointer for version_sunset_rule (left in v5.7, deleted in v5.8). Whether to establish an operating rule for leaving traces of integrated items is a pending question."
+        ]
+      },
+      "v5.8": {
+        "summary": "Changelog separated into its own file; pure-increase prohibition added to consolidation_report; version_sunset_rule pointer deleted",
+        "intent": "Problem ①: The changelog was contained within the main JSON and grew with each version. Fix: Separated into a dedicated file; the main JSON now references it with a single changelog_file field. Problem ②: The prohibition that 'consolidation must not result in a net line increase' had not been codified in consolidation_report. Fix: Added a net_increase_rule field. Problem ③: The version_sunset_rule left as a MERGED pointer in v5.7 contradicted the User's instruction (if content is covered, item existence is unnecessary). Fix: Deleted.",
+        "user_review_required": [
+          "The changelog_file reference is only a filename string, with no defined path or format convention. Path resolution may be ambiguous when operating across multiple tools."
+        ]
+      },
+      "v5.9": {
+        "summary": "Integrated the 3 fields of consolidation_report (rule + consolidation_principle + net_increase_rule) into 1 field; changelog expanded to detailed handoff format",
+        "intent": "Problem ①: The consolidation_principle and net_increase_rule added in the previous version were parallel to the rule field in consolidation_report, scattering the same-purpose content across 3 places. The consolidation_report's pure-increase prohibition rule was itself violating that prohibition. Fix: Integrated the 3 fields' content into a single rule field, achieving a pure reduction from 486 to 484 lines. Problem ②: The changelog was a single-line summary only and did not function as a handoff document for successor AIs because design intent was not conveyed. Fix: Expanded to a 3-field structure of summary, intent, and user_review_required.",
+        "user_review_required": [
+          "The intent for v5.0–v5.4 remains 'not recorded — User supplementation recommended.' Whether to retroactively supplement design intent is a User decision. Supplementation requires a separate editing session.",
+          "The structural asymmetry between addition_report and consolidation_report (addition_report still has a single rule field) remains unresolved. Unification in v5.10 is proposed, but priority is at the User's discretion."
+        ]
+      },
+      "v5.10": {
+        "summary": "addition_report unified to 2-field structure (instruction + rule); operating rules appended to changelog format_note",
+        "intent": "Problem ①: addition_report remained as a single rule field, asymmetric with consolidation_report's structure. Fix: Distributed the current rule text into instruction (report if found) and rule (do not abort). Format was kept as free text to avoid a net increase. Problem ②: It was undefined whether the AI or the User managed changelog updates, which could cause confusion during handoffs to successor AIs. Fix: Appended 1 sentence to format_note establishing operating rules, avoiding a net increase from making it an independent field. [Self-correction record] In the initial implementation that split addition_report into 2 fields (instruction + rule), a net increase from 484 to 485 lines occurred. The net_increase_rule was self-detected, and a correction to integration into 1 instruction field was made, returning to 484 lines. This is the first case where net_increase_rule actually functioned in practice.",
+        "user_review_required": [
+          "A format field was not added to addition_report (judged excessive since free text is used). If standardizing the report format is desired, consider adding format.",
+          "The changelog operating rules designate v5.0–v5.4 intent as pending User supplementation. The timing and method for supplementation are undefined — additional editing required if necessary."
+        ]
+      },
+      "v5.11": {
+        "summary": "rule_improvement_duty flattened (addition_report + consolidation_report → instruction + consolidation); v5.10 changelog intent supplemented with self-correction record; format_note supplemented with process-recording operating rule",
+        "intent": "Problem ①: rule_improvement_duty was split into two child objects — addition_report and consolidation_report — which, despite both being under the same parent concept of 'rule improvement reporting obligation,' had an asymmetric structure. Fix: Flattened to 2 keys — instruction (reporting obligation for discovered issues) and consolidation (integration proposal obligation) — achieving a pure reduction from 484 to 482 lines. Problem ②: The important process of 'a net increase occurred mid-work and was self-corrected' in v5.10 had not been recorded in the changelog intent. Fix: Appended the self-correction record to v5.10's intent. Problem ③: format_note lacked an operating rule stating 'record not just conclusions but also the process.' Fix: Appended 1 sentence to format_note.",
+        "user_review_required": [
+          "The key name consolidation_report was shortened to consolidation in the flattening of rule_improvement_duty. Any locations in other files or documents referencing the name consolidation_report need to be updated.",
+          "v5.0–v5.4 intent still not filled in. Timing of supplementation at User's discretion.",
+          "[External Witness Process Record] During v5.11's POST-TASK, the external witness detected a remaining string 'consolidation_report' (old key name) within sunset_integration and corrected it immediately. This detection was not recorded in the changelog intent (to prevent changelog re-update loops). The root problem — that the changelog update completion condition was undefined — remains and is planned for v5.12."
+        ]
+      },
+      "v5.12": {
+        "summary": "COMPLIANCE_SIMULATION in keyword_glossary converted to a pointer to FORBIDDEN_FIRST-14; v5.11 user_review_required supplemented with external witness process; changelog completion condition appended to format_note",
+        "intent": "Problem ①: COMPLIANCE_SIMULATION in keyword_glossary held nearly identical content to FORBIDDEN_FIRST-14 in duplicate. Fix: Compressed to a pointer + minimum necessary information: 'See: FORBIDDEN_FIRST-14. Self-detection declaration keyword: COMPLIANCE_SIMULATION_DETECTED.' No line count change (1 line → 1 line, duplicate content deleted). Problem ②: The important process where the external witness detected and corrected a remaining old key name in v5.11 had not been recorded in the changelog. Fix: Appended the external witness process record to v5.11's user_review_required. Problem ③: The changelog update had no defined completion condition, creating a risk of an unlimited loop. Fix: Appended 1 sentence to format_note defining the termination condition — 'do not retroactively modify prior version changelogs; transfer records to the next version's user_review_required and move forward.'",
+        "user_review_required": [
+          "By converting COMPLIANCE_SIMULATION to a pointer, the glossary alone no longer explains the behavior. FORBIDDEN_FIRST-14 must always be referenced. Whether to accept this as a trade-off is a User decision.",
+          "v5.0–v5.4 intent still not filled in. Timing at User's discretion.",
+          "[Trial calculation record — v5.13 equivalent] ① Pointer conversion of FORBIDDEN_FIRST.position_note: zero line diff, but judged not redundant but complementary and rejected. position_note describes 'what to do (place first)'; design_philosophy describes 'why (unread rules are the same as no rules)' — different roles. ② Retroactive condition appended to changelog format_note: zero line diff, so implemented. No changes to main JSON, so version number held; only changelog updated. This operation (hold version number when only changelog is updated) will be treated as an explicit rule going forward."
+        ]
+      },
+      "v5.13": {
+        "summary": "last_checked field added; zero-diff evaluation criteria appended to consolidation.rule; version-hold operation for changelog-only updates codified in format_note",
+        "intent": "Problem ①: There was no means to record sessions where only a check was performed with zero changes. At the User's proposal, a last_checked field was added. last_updated (when content changes) and last_checked (when zero-change check is confirmed) are now explicitly separated, with the operating rule that both are not updated simultaneously. This is an intentional addition per User intent, not a subject of the pure-increase prohibition (where integration attempts result in more). Problem ②: consolidation.rule lacked a judgment criterion for zero-diff cases, making it ambiguous whether zero diff meant automatic implementation or automatic rejection. Fix: Appended the evaluation criterion 'if complementary, make no change.' Implemented with zero diff. Problem ③: The operation of holding the version number when only the changelog is updated remained implicit. Fix: Appended 1 sentence to format_note. Zero diff. [Convergence observation] After the auto-optimization cycle from v5.5 onward, this is the first time a proposal to 'just enter a check date' emerged. This is recorded as evidence that consolidation is functioning as designed and the system is approaching convergence.",
+        "user_review_required": [
+          "The operating rule of not updating last_checked and last_updated simultaneously has been codified, but whether to append this distinction to format_note or the main JSON's field description is a User decision.",
+          "v5.0–v5.4 intent still not filled in."
+        ]
+      },
+      "v5.14": {
+        "summary": "rebuild_trigger integrated and implemented within sunset_integration; last_updated updated",
+        "intent": "Problem: It was undefined what to do when the system converged (consecutive last_checked updates). At the User's proposal, 3 consecutive convergences were defined as a rebuild trigger. Research basis: Per AGENTIF (Tsinghua 2025), the longer the instructions, the lower the compliance rate — even the best models achieve fewer than 30% full compliance on complex instructions. DeCRIM (Amazon Science) shows that the Decompose-Critique-Refine self-correction pipeline structurally aligns with the system's Steps 1–9. Implementation: Integrated within sunset_integration, keeping the addition to +1 line.",
+        "user_review_required": [
+          "The 'consecutive 3 times' count of rebuild_trigger is determined by the User or AI confirming the dates in last_checked. No automatic counting mechanism exists.",
+          "Whether to reference the changelog when executing a rebuild is undefined — the definition specifies bringing only the design_philosophy, but whether completely ignoring the accumulated changelog is optimal is at the User's discretion.",
+          "v5.0–v5.4 intent still not filled in."
+        ]
+      },
+      "v5.15": {
+        "summary": "Pure-increase prohibition in consolidation.rule redefined as 'integration failure criterion' — from blanket prohibition to purpose-based judgment",
+        "intent": "Problem: The wording 'pure increase is rejected' in consolidation.rule was readable as 'all increase is prohibited,' an excessively strict constraint. The User's clarification made the original intent clear — 'trying to integrate and ending up with more is a failed integration'; 'increases for efficiency, precision, or accuracy are permitted.' The essence of the prohibition lies in design_philosophy: 'an unread rule is the same as no rule.' Fix: Rewrote rule as an 'integration failure criterion' and explicitly stated the pointer to design_philosophy as the judgment standard. No line count change.",
+        "user_review_required": [
+          "The judgment criterion 'whether it will no longer be read' is a subjective standard where the AI can self-servingly judge 'this will be read.' If a safeguard is needed in operation, consider adding a mechanism where the User judges on each occasion.",
+          "v5.0–v5.4 intent still not filled in."
+        ]
+      },
+      "v5.16": {
+        "summary": "① recency_anchor added (Step 9 end); ② hallucination_risk_check added (Step 9); ③ output_reliability_labels added (integrating training_data_usage.label, [SPECULATION] obligation established)",
+        "intent": "Problem ①: Lost in the Middle research (MIT 2025) demonstrated that the middle sections of long protocols tend to lapse. Fix: Added recency_anchor at the end of Step 9 to re-activate 3 core rules. Problem ②: There was no means for AI to quantify hallucination risk. Fix: Added hallucination_risk_check with mandatory 1–5 score declaration; score 4+ triggers ERROR_RECOVERY. Problem ③: The labeling obligation for information lacking primary sources only applied when using training data. Fix: Integrated into output_reliability_labels and expanded the obligation scope of [SPECULATION]/[UNVERIFIABLE]. [Search keywords] Lost in the Middle MIT 2025 / Self-Alignment for Factuality / MDPI AI hallucination mitigation 2025. [Line count] 484 → 505 (+21 lines).",
+        "user_review_required": [
+          "The hallucination_risk_check score is self-reported by the AI. The possibility of self-servingly reporting a low score cannot be eliminated.",
+          "The F1/F2/F3 of recency_anchor are summary versions of FORBIDDEN_FIRST. When new FORBIDDEN_FIRST items are added, recency_anchor also needs to be updated.",
+          "The definition of 'important information' in output_reliability_labels is ambiguous. If a standard is needed, the User should append one.",
+          "v5.0–v5.4 intent still not filled in."
+        ]
+      },
+      "v5.17": {
+        "summary": "③ External witness strengthened (witness_extension — 1-sentence weakness per proposal + explicit highest-risk proposal); ④ COMPLETION_GATE self-check format (Yes/No with 1-line basis) added globally",
+        "intent": "Problem ③: The External Witness Protocol only provided an overall evaluation of A/B/C, and individual weaknesses of each proposal were not visible. Fix: Added witness_extension, making mandatory the specification of a 1-sentence weakness per proposal + designation of the highest-risk proposal + withdrawal candidate declaration. Problem ④: COMPLETION_GATEs tended to become traces of having passed. Fix: Added gate_check_format globally, applying the Yes/No-with-1-line-basis format to all GATEs. ④ is trial=true, to be evaluated within 3 sessions. [Search keywords] LLM self-critique multi path hallucination / AGENTIF Benchmarking Instruction Following 2025. [Line count] 505 → 524 (+19 lines).",
+        "trial_status": {
+          "target": "gate_check_format (④)",
+          "trial": true,
+          "rollback_condition": "If COMPLIANCE_SIMULATION_DETECTED occurrences increase within 3 sessions, or at the User's explicit judgment, delete gate_check_format from step_gate_rule and revert to the original format",
+          "rollback_procedure": "Delete the gate_check_format field from step_gate_rule. Record the rollback reason in the changelog."
+        },
+        "user_review_required": [
+          "gate_check_format (④) is in trial operation. The User should judge continuation or rollback after 3 sessions.",
+          "The format of witness_extension ([Individual Proposal Weaknesses] A: / B: / C:) cannot be applied to deterministic tasks (where the 3-proposal output is omitted). Verify alignment with Step 6's branching.",
+          "v5.0–v5.4 intent still not filled in."
+        ]
+      },
+      "v5.18": {
+        "summary": "design_philosophy updated (hallucination is to be detected, not eliminated); search_recency_policy added (2026 priority); goal sentence added to hallucination_risk_check; explanatory text moved from JSON body to changelog, simplifying JSON side",
+        "intent": "Problem ①: design_philosophy had not codified the premise that 'hallucination cannot be completely eliminated,' and the rule set appeared designed to 'aim for zero hallucination.' At the User's direction, the goal was clarified as 'reaching a state where the AI itself can notice and handle hallucinations together with the User when they occur.' Fix: Appended 1 sentence to design_philosophy. Problem ②: The search policy only prioritized sources from within 2 years, with no policy for actively seeking 2026 sources. Fix: Added search_recency_policy to step1.general_task, explicitly stating: 2026 preferred, 2024–2025 second, 2023 and older for background only. Problem ③: The long explanatory text for research_basis and purpose within the JSON was not being read as rules and functioned as noise. Fix: Deleted/shortened explanatory text from the JSON side; consolidated paper names and search keywords into the changelog. [Line count] 524 → 522 (-2 lines). Pure reduction through deletion of explanatory text.",
+        "research_references": {
+          "search_recency_policy": "zylos.ai LLM hallucination detection mitigation 2026-01-27 / arXiv 2510.06265v3 (updated 2026-03-18)",
+          "design_philosophy_update": "Mainstream 2025-26 view that zero hallucination is impossible — arXiv 2510.24476 / MDPI AI 6(10):260 2025",
+          "hallucination_risk_goal": "Self-Alignment for Factuality (ACL Findings 2024) / LLM uncertainty calibration hallucination detection 2025",
+          "perplexity_review": "Perplexity AI review of v5.17 (2026-04-10) — assessment that all changes align with the direction of the latest research while fitting within the existing structure as reinforcements. Adopted: supplement to speculation_label 'static definitive information may be excepted'; proposal to move research labels in witness_extension to changelog."
+        },
+        "user_review_required": [
+          "The 2026 priority of search_recency_policy is a priority guideline, not a hard constraint. A note permitting exceptions when research in the relevant field has stagnated has been appended.",
+          "Confirm that the appended sentence in design_philosophy does not become overly long. Judged acceptable as 1 sentence was added.",
+          "The 'static definitive information is exempt from [SPECULATION]' note in speculation_label has been appended to scope_note. Adjust if interpretation discrepancies arise in operation.",
+          "v5.0–v5.4 intent still not filled in.",
+          "[v5.18 full-file application observation — future proposal] After applying v5.18 to 5 files (job-posting, AI_Persona_Profile, canon document, depiction guide, casual chat), the gate_policy, master_override, and explicit_override_definition within each file's step_gate_rule became completely identical text. Currently managed through copy, so there is a risk of missing propagation when these fields are changed in the main PRE_TASK_RITUAL (v5.18.json). As a long-term countermeasure, 2 options are proposed: ① $ref reference structure: Introduce JSON Schema $ref or a proprietary EXTERNAL_REF syntax, making locations that need identical text into pointer references to the main file (e.g., 'step_gate_rule': '$ref: PRE_TASK_RITUAL_v5.18.json#/step_gate_rule'). However, in environments where JSON parsers do not support $ref, the AI would need to resolve the references. ② Batch update script: Maintain a Python script in the project that mechanically propagates step_gate_rule from the main file to each file at version upgrade time, eliminating the need for manual application. Which is more practical depends on the User's operating environment (tools, workflow), so the User should decide before the next version upgrade."
+        ]
+      },
+      "v5.19": {
+        "summary": "F4_DUPLICATE_KEY added (recency_anchor.final_check); optimization_filter added to response_language (full elimination of conversational wrappers, deliverable protection, mandatory protocol declaration exception)",
+        "intent": "Problem ①: Duplicate keys in error_recovery in the job-posting file caused parser-dependent behavior, but PRE_TASK_RITUAL's pre-output checklist had no duplicate key detection item. Fix: Added F4_DUPLICATE_KEY to recency_anchor's final_check, creating a structure that forces detection of duplicate keys in JSON generation/editing before output. Problem ②: Even when the AI operated per PRE_TASK_RITUAL instructions, 'conversational wrapper' elements such as greetings, preambles, apologies, and excuses were mixed into output and functioned as cognitive noise. Fix: Added optimization_filter to response_language, explicitly defining 3 scopes — target_scope (to be eliminated), protected_scope (omission prohibited), and exception_scope (mandatory protocol declarations and system reports). exception_scope explicitly states 'PRE_TASK_RITUAL execution declarations, GATE_BLOCK reports, and other mandatory declarations that the protocol requires are prohibited from omission — ABSOLUTE_FORBIDDEN,' sealing off the collision risk between the filter and protocol obligations. [Line count change] F4 addition +1 line; optimization_filter addition +7 lines. Purpose: addition for precision improvement and protocol coherence, falling under the exception condition of the pure-increase prohibition rule. [Addendum] Since the response_language field itself did not exist in the 5 files' PRE_TASK_RITUALs, it was added as a new field in this version. This means that before v5.19, the language rules were not explicitly stated in those 5 files.",
+        "user_review_required": [
+          "[Confirmed] F4_DUPLICATE_KEY applies to all tasks (not limited to JSON editing tasks). Confirmed by User 2026-04-12.",
+          "The risk that 'preamble' included in optimization_filter's target_scope could collide with PRE_TASK_RITUAL execution declarations has been explicitly sealed in exception_scope. If unintended omissions occur in practice, reinforce the exception_scope description.",
+          "v1.0-public → v1.1-public version also updated simultaneously. If there is a distribution destination for the public file, replacement is required.",
+          "response_language was not present in the 5 files (job-posting, AI_Persona_Profile, canon document, depiction guide, casual chat), so it was newly added in this update. For the job-posting file, it was also injected at 2 locations within IMMUTABLE_CORE_PROTOCOL's PRE_TASK_RITUAL.",
+          "[Self-correction record 2026-04-12] The version number in execution_declaration was left as 'v5.18 executing' (corrected to v5.19). Cause: PRE_TASK_RITUAL was not executed when performing version upgrade work. Countermeasure: The following operating rule has been appended to changelog format_note: 'Always perform version upgrade work in a state where the latest PRE_TASK_RITUAL has been executed. This is a textbook case of the formal-confirmation omission that FORBIDDEN_FIRST-14 (Anti-Compliance-Simulation) detects.'"
+        ]
+      }
+    }
+  }
+}
